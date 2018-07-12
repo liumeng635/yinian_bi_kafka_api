@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yinian.bury.model.CountOperationMapper" >
+  <resultMap id="BaseResultMap" type="com.yinian.bury.model.CountOperation" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="from_user_id" property="fromUserId" jdbcType="VARCHAR" />
+    <result column="create_user_id" property="createUserId" jdbcType="VARCHAR" />
+    <result column="group_id" property="groupId" jdbcType="VARCHAR" />
+    <result column="group_new_type" property="groupNewType" jdbcType="VARCHAR" />
+    <result column="port" property="port" jdbcType="VARCHAR" />
+    <result column="operation" property="operation" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="user_register_time" property="userRegisterTime" jdbcType="TIMESTAMP" />
+    <result column="user_last_login_time" property="userLastLoginTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, from_user_id, create_user_id, group_id, group_new_type, port, operation, 
+    remark, user_register_time, user_last_login_time, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from count_operation
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from count_operation
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yinian.bury.model.CountOperation" >
+    insert into count_operation (id, user_id, from_user_id, 
+      create_user_id, group_id, group_new_type, 
+      port, operation, remark, 
+      user_register_time, user_last_login_time, 
+      create_time)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{fromUserId,jdbcType=VARCHAR}, 
+      #{createUserId,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, #{groupNewType,jdbcType=VARCHAR}, 
+      #{port,jdbcType=VARCHAR}, #{operation,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{userRegisterTime,jdbcType=TIMESTAMP}, #{userLastLoginTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yinian.bury.model.CountOperation" >
+    insert into count_operation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="fromUserId != null" >
+        from_user_id,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="groupNewType != null" >
+        group_new_type,
+      </if>
+      <if test="port != null" >
+        port,
+      </if>
+      <if test="operation != null" >
+        operation,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="userRegisterTime != null" >
+        user_register_time,
+      </if>
+      <if test="userLastLoginTime != null" >
+        user_last_login_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="fromUserId != null" >
+        #{fromUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNewType != null" >
+        #{groupNewType,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null" >
+        #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="operation != null" >
+        #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegisterTime != null" >
+        #{userRegisterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userLastLoginTime != null" >
+        #{userLastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yinian.bury.model.CountOperation" >
+    update count_operation
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="fromUserId != null" >
+        from_user_id = #{fromUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNewType != null" >
+        group_new_type = #{groupNewType,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null" >
+        port = #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="operation != null" >
+        operation = #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegisterTime != null" >
+        user_register_time = #{userRegisterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userLastLoginTime != null" >
+        user_last_login_time = #{userLastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yinian.bury.model.CountOperation" >
+    update count_operation
+    set user_id = #{userId,jdbcType=VARCHAR},
+      from_user_id = #{fromUserId,jdbcType=VARCHAR},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=VARCHAR},
+      group_new_type = #{groupNewType,jdbcType=VARCHAR},
+      port = #{port,jdbcType=VARCHAR},
+      operation = #{operation,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      user_register_time = #{userRegisterTime,jdbcType=TIMESTAMP},
+      user_last_login_time = #{userLastLoginTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectUserInfoByUserId" resultType="java.util.HashMap" parameterType="java.lang.Integer" >
+	    SELECT
+			uphone,
+			uwechatid,
+			uopenid,
+			upass,
+			unickname,
+			usex,
+			ubirth,
+			upic,
+			uBalance,
+			ustate,
+			uprovince,
+			ucity,
+			uLockPass,
+			ubackground,
+			ucid,
+			udevice,
+			DATE_FORMAT(t.utime, '%Y-%m-%d %H:%i:%s') AS utime,
+			usource,
+			uversion,
+			uport,
+			uloginSource,
+			uFromUserID,
+			uFromSpaceID,
+			uFromEventID,
+			uusespace,
+			utotalspace,
+		  	uInviteReward,
+			uJoinReward,
+			uCreateReward,
+			uInviteTotal,
+			uJoinTotal,
+			uCreateTotal
+		FROM
+			yinian.users t
+		WHERE
+			t.userid = #{userId}
+  </select>
+  
+  <select id="selectCircleType" resultType="String" parameterType="java.lang.Integer" >
+	   SELECT t.circle_template_id FROM yinian.circles_info t where t.id=#{groupId}
+  </select>
+  
+  <select id="selectGroupNewType" resultType="String" parameterType="java.lang.Integer" >
+	   SELECT t.groupNewType FROM yinian.groups t where t.groupid=#{groupId}
+  </select>
+</mapper>
