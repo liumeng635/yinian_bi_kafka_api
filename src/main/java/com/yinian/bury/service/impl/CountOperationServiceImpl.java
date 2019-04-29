@@ -63,7 +63,7 @@ public class CountOperationServiceImpl implements CountOperationService{
 	
 	@Override
 	public void processBuryTransdata(String userId, String fromUserId, String createUserId, String groupId, String port,
-			String operation, String remark, String userLastLoginTime) throws ParseException {
+			String operation, String remark, String userLastLoginTime,String extroOne,String extroTwo,String extroThree) throws ParseException {
 		CountOperation bean = new CountOperation();
 		bean.setUserId(userId);
 		bean.setFromUserId(fromUserId);
@@ -73,6 +73,9 @@ public class CountOperationServiceImpl implements CountOperationService{
 		bean.setOperation(operation);
 		bean.setRemark(remark);
 		bean.setUserLastLoginTime(DateUtils.parseDate(userLastLoginTime, "yyyy-MM-dd HH:mm:ss"));
+		bean.setExtroOne(extroOne);
+		bean.setExtroTwo(extroTwo);
+		bean.setExtroThree(extroThree);
 		kafkaTemplate.send("countOperation", gson.toJson(bean));
 	}
 	

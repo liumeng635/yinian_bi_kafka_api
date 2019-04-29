@@ -17,7 +17,7 @@
   </resultMap>
   <sql id="Base_Column_List" >
     id, user_id, from_user_id, create_user_id, group_id, group_new_type, port, operation, 
-    remark, user_register_time, user_last_login_time, create_time
+    remark, user_register_time, user_last_login_time, create_time,extro_one,extro_two,extro_three
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -34,12 +34,12 @@
       create_user_id, group_id, group_new_type, 
       port, operation, remark, 
       user_register_time, user_last_login_time, 
-      create_time)
+      create_time,extro_one,extro_two,extro_three)
     values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{fromUserId,jdbcType=VARCHAR}, 
       #{createUserId,jdbcType=VARCHAR}, #{groupId,jdbcType=VARCHAR}, #{groupNewType,jdbcType=VARCHAR}, 
       #{port,jdbcType=VARCHAR}, #{operation,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
       #{userRegisterTime,jdbcType=TIMESTAMP}, #{userLastLoginTime,jdbcType=TIMESTAMP}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{createTime,jdbcType=TIMESTAMP},#{extro_one,jdbcType=VARCHAR},#{extro_two,jdbcType=VARCHAR},#{extro_three,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yinian.bury.model.CountOperation" >
     insert into count_operation
@@ -80,6 +80,15 @@
       <if test="createTime != null" >
         create_time,
       </if>
+      <if test="extroOne != null" >
+        extro_one,
+      </if>
+      <if test="extroTwo != null" >
+        extro_two,
+      </if>
+      <if test="extroThree != null" >
+        extro_three,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -117,6 +126,15 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extroOne != null" >
+        #{extroOne,jdbcType=VARCHAR},
+      </if>
+      <if test="extroTwo != null" >
+        #{extroTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="extroThree != null" >
+        #{extroThree,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>

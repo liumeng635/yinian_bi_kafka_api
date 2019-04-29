@@ -43,9 +43,12 @@ public class BuryDataController {
     		,@RequestParam(value="operation",required=false) String operation
     		,@RequestParam(value="remark",required=false) String remark
     		,@RequestParam(value="userLastLoginTime",required=false) String userLastLoginTime
+    		,@RequestParam(value="extroOne",required=false) String extroOne
+    		,@RequestParam(value="extroTwo",required=false) String extroTwo
+    		,@RequestParam(value="extroThree",required=false) String extroThree
     	){
 		try {
-			countOperationService.processBuryTransdata(userId, fromUserId, createUserId, groupId, port, operation, remark, userLastLoginTime);
+			countOperationService.processBuryTransdata(userId, fromUserId, createUserId, groupId, port, operation, remark, userLastLoginTime,extroOne,extroTwo,extroThree);
 		} catch (Exception e) {
 			return ResultsHelper.putResults("500", "","接口调用异常",ExceptionHandle.getErrorInfoFromException(e));
 		}

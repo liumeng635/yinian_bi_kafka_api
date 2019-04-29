@@ -27,6 +27,12 @@ public class CountOperation {
 
     private Date createTime;
 
+    private String extroOne;
+
+    private String extroTwo;
+
+    private String extroThree;
+
     public String getId() {
         return id;
     }
@@ -121,5 +127,30 @@ public class CountOperation {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+
+    public String getExtroOne() {
+        return extroOne;
+    }
+
+    public void setExtroOne(String extroOne) {
+        this.extroOne = extroOne;
+    }
+
+    public String getExtroTwo() {
+        return extroTwo;
+    }
+
+    public void setExtroTwo(String extroTwo) {
+        this.extroTwo = extroTwo;
+    }
+
+    public String getExtroThree() {
+        return extroThree;
+    }
+
+    public void setExtroThree(String extroThree) {
+        this.extroThree = extroThree;
     }
 }

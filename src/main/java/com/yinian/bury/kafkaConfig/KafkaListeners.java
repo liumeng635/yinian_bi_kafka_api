@@ -32,12 +32,13 @@ public class KafkaListeners {
     public void processMessage(String content) {
     	try {
 			CountOperation bean = gson.fromJson(content, CountOperation.class);
-			if(bean.getUserId() == null)return;
+			if(bean.getUserId() == null){return;}
 			String s = UUIDUtil.get32UUIDStr();
 			bean.setId(s);
 			bean.setCreateTime(new Date());
 			countService.fillLackFiled(bean);
-			countService.insertSelective(bean);//埋点数据入库
+			//埋点数据入库
+			countService.insertSelective(bean);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

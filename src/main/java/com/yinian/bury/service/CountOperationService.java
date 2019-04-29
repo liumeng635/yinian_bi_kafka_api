@@ -20,7 +20,7 @@ public interface CountOperationService {
     @Deprecated
     public void processBuryData(String processName,Class<?> clz);
     
-    public void processBuryTransdata(String userId,String fromUserId,String createUserId,String groupId,String port,String operation,String remark,String userLastLoginTime) throws ParseException;
+    public void processBuryTransdata(String userId,String fromUserId,String createUserId,String groupId,String port,String operation,String remark,String userLastLoginTime,String extroOne,String extroTwo,String extroThree) throws ParseException;
     
     public void fillLackFiled(CountOperation operation) throws Exception;
 }
